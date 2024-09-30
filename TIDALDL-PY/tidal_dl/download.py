@@ -15,6 +15,8 @@ from decryption import *
 from printf import *
 from tidal import *
 
+def __fixPath__(name: str):
+    return aigpy.path.replaceLimitChar(name, '-').strip()
 
 def __isSkip__(finalpath, url):
     if not SETTINGS.checkExist:
