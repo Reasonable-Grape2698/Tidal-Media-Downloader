@@ -54,8 +54,7 @@ def __setMetaData__(track: Track, album: Album, filepath, contributors, lyrics):
     obj.title = track.title
     if not aigpy.string.isNull(track.version):
         obj.title += ' (' + track.version + ')'
-
-    obj.artist = TIDAL_API.getArtistsName(track.artists)
+    obj.artist = _fixpath_(TIDAL_API.getArtistsName(artist.name))
     obj.copyright = track.copyRight
     obj.tracknumber = track.trackNumber
     obj.discnumber = track.volumeNumber
