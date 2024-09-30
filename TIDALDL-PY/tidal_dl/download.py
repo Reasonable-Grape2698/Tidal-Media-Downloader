@@ -62,7 +62,7 @@ def __setMetaData__(track: Track, album: Album, filepath, contributors, lyrics):
     obj.composer = __parseContributors__('Composer', contributors)
     obj.isrc = track.isrc
 
-    obj.albumartist = TIDAL_API.getArtistsName(track.artists)
+    obj.albumartist = __fixPath__(TIDAL_API.getArtistsName(track.artists))
     obj.date = album.releaseDate
     obj.totaldisc = album.numberOfVolumes
     obj.lyrics = lyrics
